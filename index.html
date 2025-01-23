@@ -71,7 +71,9 @@
 <body>
     <h1>Nosso Amor ❤️</h1>
     
-    <audio id="musica" src="imagens/Always.mp3 preload="auto">
+    <audio id="musica" 
+        src="imagens/Always.mp3 preload="auto">
+    </audio>
 
     <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
@@ -160,7 +162,11 @@
 
         setInterval(atualizarContador, 1000);
         atualizarContador(); // Atualiza imediatamente ao carregar a página
-        
+        let html = document.querySelector("html");
+        let musica = document.querySelector("#musica");
+        html.addEventListener('click', () => {
+            musica.play();
+        })
         
     </script>
 
