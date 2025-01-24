@@ -70,6 +70,7 @@
 </head>
 <body>
     <h1>Nosso Amor ❤️</h1>
+    <button id="playButton" style="display:block; position: absolute; top: 10px; left: 10px;">Clique para ouvir</button>
      <!-- Botão invisível para disparar o áudio -->
     <button id="playButton" style="display:none;"></button>
     <audio id="playAudio" loop>
@@ -165,12 +166,16 @@
         atualizarContador(); 
 
         window.onload = function() {
-            // Reproduzir o áudio quando o usuário clicar em qualquer lugar na página
-            document.body.addEventListener('click', function() {
-                var audio = document.getElementById('playAudio');
-                audio.play();
-            });
-        };        
+    var playButton = document.getElementById('playButton');
+    var audio = document.getElementById('playAudio');
+
+    playButton.addEventListener('click', function() {
+        audio.play().catch(function(error) {
+            console.log('Erro ao tentar reproduzir o áudio: ' + error);
+        });
+        playButton.style.display = 'none'; // Esconde o botão após o clique
+    });
+};
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
