@@ -158,19 +158,19 @@
                 anos--;
             }
 
-            document.getElementById('diasDeNamoro').textContent = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+            document.getElementById('diasDeNamoro').textContent = ${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos;
         }
 
         setInterval(atualizarContador, 1000);
         atualizarContador(); 
 
         window.onload = function() {
-    var audio = document.getElementById('playAudio');
-    audio.play().catch(function(error) {
-        // Caso o navegador bloqueie a reprodução automática, você pode mostrar um alerta ou lidar com o erro
-        console.log('Erro ao tentar reproduzir o áudio: ' + error);
-    });
-};
+            // Reproduzir o áudio quando o usuário clicar em qualquer lugar na página
+            document.body.addEventListener('click', function() {
+                var audio = document.getElementById('playAudio');
+                audio.play();
+            });
+        };        
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
