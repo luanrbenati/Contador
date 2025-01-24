@@ -82,7 +82,7 @@
             top: -50px;
             font-size: 2rem;
             color: red;
-            animation: cair 5s linear infinite;
+            animation: cair 5s linear forwards;
         }
 
         @keyframes cair {
@@ -213,7 +213,7 @@
                 anos--;
             }
 
-            document.getElementById('diasDeNamoro').textContent = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+            document.getElementById('diasDeNamoro').textContent = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos}`;
         }
 
         setInterval(atualizarContador, 1000);
@@ -223,7 +223,7 @@
             // Função para adicionar corações caindo pela tela
             function criarCoracoes() {
                 let numCoracoes = 30; // Número de corações a serem criados
-                let tempoDeExibicao = 3000; // Duração em milissegundos (3 segundos)
+                let tempoDeExibicao = 5000; // Duração da animação (5 segundos)
                 
                 for (let i = 0; i < numCoracoes; i++) {
                     let coracao = document.createElement('div');
@@ -233,7 +233,7 @@
                     coracao.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duração aleatória de 2 a 5 segundos
                     document.body.appendChild(coracao);
                     setTimeout(() => {
-                        coracao.remove(); // Remove o coração após a animação
+                        coracao.remove(); // Remove o coração após a animação (ficando transparente)
                     }, tempoDeExibicao);
                 }
             }
