@@ -76,6 +76,25 @@
             margin-bottom: 10px;
             padding: 0;
         }   
+                /* Animação dos corações */
+        .coracao {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            color: red;
+            animation: cair 5s linear infinite;
+        }
+
+        @keyframes cair {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -199,6 +218,27 @@
 
         setInterval(atualizarContador, 1000);
         atualizarContador(); 
+
+        window.onload = function() {
+            // Função para adicionar corações caindo pela tela
+            function criarCoracoes() {
+                let numCoracoes = 30; // Número de corações a serem criados
+                let tempoDeExibicao = 3000; // Duração em milissegundos (3 segundos)
+                
+                for (let i = 0; i < numCoracoes; i++) {
+                    let coracao = document.createElement('div');
+                    coracao.classList.add('coracao');
+                    coracao.innerHTML = '❤️';
+                    coracao.style.left = `${Math.random() * 100}%`; // Posicionamento aleatório no eixo X
+                    coracao.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duração aleatória de 2 a 5 segundos
+                    document.body.appendChild(coracao);
+                    setTimeout(() => {
+                        coracao.remove(); // Remove o coração após a animação
+                    }, tempoDeExibicao);
+                }
+            }
+
+            criarCoracoes(); // Inicia os corações caindo
 
         window.onload = function() {
             var playButton = document.getElementById('playButton');
