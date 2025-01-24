@@ -70,9 +70,11 @@
 </head>
 <body>
     <h1>Nosso Amor ❤️</h1>
-    <audio autoplay loop muted id="playAudio">
-    <source src="imagens/Always.mp3">
-</audio>
+     <!-- Botão invisível para disparar o áudio -->
+    <button id="playButton" style="display:none;"></button>
+    <audio id="playAudio" loop>
+        <source src="imagens/Always.mp3" type="audio/mp3">
+    </audio>
 
     <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
@@ -162,10 +164,15 @@
         setInterval(atualizarContador, 1000);
         atualizarContador(); 
         
+        <script>
         window.onload = function() {
-    var audio = document.getElementById('playAudio');
-    audio.muted = false;  // Desmuta o áudio assim que a página carrega
-};
+            // Reproduzir o áudio quando o usuário clicar em qualquer lugar na página
+            document.body.addEventListener('click', function() {
+                var audio = document.getElementById('playAudio');
+                audio.play();
+            });
+        };
+    </script>
         
     </script>
 
