@@ -70,11 +70,9 @@
 </head>
 <body>
     <h1>Nosso Amor ❤️</h1>
-    <iframe src="imagens/Always.mp3" allow="autoplay" style="display:none" id="iframeAudio">
-    </iframe>
-    <audio autoplay loop  id="playAudio">
+    <audio autoplay loop muted id="playAudio">
     <source src="imagens/Always.mp3">
-    </audio>
+</audio>
 
     <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
@@ -162,14 +160,12 @@
         }
 
         setInterval(atualizarContador, 1000);
-        atualizarContador(); // Atualiza imediatamente ao carregar a página
-        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-  if (!isChrome){
-      $('#iframeAudio').remove()
-  }
-  else {
-      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
-  }
+        atualizarContador(); 
+        
+        window.onload = function() {
+    var audio = document.getElementById('playAudio');
+    audio.muted = false;  // Desmuta o áudio assim que a página carrega
+};
         
     </script>
 
